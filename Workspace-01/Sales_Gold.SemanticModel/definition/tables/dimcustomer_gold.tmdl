@@ -1,0 +1,56 @@
+table dimcustomer_gold
+	lineageTag: 8c72075d-1326-4d16-9156-34669d7aa7f7
+	sourceLineageTag: [dbo].[dimcustomer_gold]
+
+	column CustomerName
+		dataType: string
+		lineageTag: 74b18eff-33c3-4089-b240-5c88e63195fb
+		sourceLineageTag: CustomerName
+		summarizeBy: none
+		sourceColumn: CustomerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: 2eac1efc-8019-450a-b0b0-d7f528f31b16
+		sourceLineageTag: Email
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column First
+		dataType: string
+		lineageTag: ca01ec8c-02db-4d6b-bdea-3f381c97a7d3
+		sourceLineageTag: First
+		summarizeBy: none
+		sourceColumn: First
+
+		annotation SummarizationSetBy = Automatic
+
+	column Last
+		dataType: string
+		lineageTag: 3a14d400-3d3f-461b-ab50-c188ad216fb9
+		sourceLineageTag: Last
+		summarizeBy: none
+		sourceColumn: Last
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerID
+		dataType: int64
+		formatString: 0
+		lineageTag: 5eb2fe35-2bf5-4a1f-a281-2f98cdaff178
+		sourceLineageTag: CustomerID
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dimcustomer_gold = entity
+		mode: directLake
+		source
+			entityName: dimcustomer_gold
+			expressionSource: 'DirectLake - Sales'
+

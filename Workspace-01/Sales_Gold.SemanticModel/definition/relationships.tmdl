@@ -1,0 +1,4 @@
+relationship 3570dc47-dd3d-de9e-36e9-6279ee789cdd
+	fromColumn: factsales_gold.CustomerID
+	toColumn: dimcustomer_gold.CustomerID
+
