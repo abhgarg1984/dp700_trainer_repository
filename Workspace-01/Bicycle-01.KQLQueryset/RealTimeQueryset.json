@@ -1,0 +1,22 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "148afeee-c5dc-4489-aff8-d082e56a1797",
+        "clusterUri": "",
+        "type": "Fabric",
+        "databaseItemId": "5a6c4c86-79e7-8298-4d0e-9e9ad92f635b",
+        "databaseItemName": "bicycle-db"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "381dcf5d-71c0-484c-95bf-611d56887460",
+        "content": " // See the most recent data - records ingested in the last 24 hours.\n bikes\n | where ingestion_time() between (now(-1d) .. now())\n\n\n ['bikes-grouped']\n | summarize TotalBikes =  sum(SUM_No_Bikes) by Window_End_Time, Street\n | project Street, TotalBikes, Window_End_Time\n | sort  by Window_End_Time desc, Street asc",
+        "title": "Tab",
+        "dataSourceId": "148afeee-c5dc-4489-aff8-d082e56a1797"
+      }
+    ]
+  }
+}

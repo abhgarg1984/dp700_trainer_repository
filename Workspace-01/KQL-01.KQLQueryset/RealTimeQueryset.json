@@ -1,0 +1,22 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "ee780b60-8f02-4316-beac-42ed16473180",
+        "clusterUri": "",
+        "type": "Fabric",
+        "databaseItemId": "d7799b17-5bda-8a69-4535-37060c89b07a",
+        "databaseItemName": "stock-eventhouse"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "94acd66d-0f38-4a87-aa68-b79c78fc193a",
+        "content": " stock\n | where [\"time\"] > ago(5m)\n | summarize avgPrice = avg(todecimal(bidPrice)) by symbol\n | project symbol, avgPrice",
+        "title": "Tab",
+        "dataSourceId": "ee780b60-8f02-4316-beac-42ed16473180"
+      }
+    ]
+  }
+}

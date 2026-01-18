@@ -1,0 +1,100 @@
+{
+  "schema_version": 67,
+  "tiles": [
+    {
+      "id": "b8afe703-99a6-4f3c-b12e-45e10ea9f410",
+      "title": "Tile-01",
+      "visualType": "column",
+      "pageId": "f7d15f09-1b17-4836-9684-e4d4d1f5d8dc",
+      "layout": {
+        "x": 0,
+        "y": 0,
+        "width": 9,
+        "height": 7
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "dee94d61-3e82-44c4-83d6-9dbe04dc852f"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": []
+          },
+          "additional": [],
+          "showMultiplePanels": false
+        },
+        "hideLegend": false,
+        "legendLocation": "bottom",
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilter": [],
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "forceAxisTicks": false,
+        "drillthrough": [],
+        "selectedDataOnLoad": {
+          "all": true,
+          "limit": 10
+        }
+      }
+    }
+  ],
+  "baseQueries": [],
+  "parameters": [
+    {
+      "kind": "duration",
+      "id": "bf8e96a1-cac5-4ef6-b72a-088a5c55110c",
+      "displayName": "Time range",
+      "description": "",
+      "beginVariableName": "_startTime",
+      "endVariableName": "_endTime",
+      "defaultValue": {
+        "kind": "dynamic",
+        "count": 1,
+        "unit": "hours"
+      },
+      "showOnPages": {
+        "kind": "all"
+      }
+    }
+  ],
+  "dataSources": [
+    {
+      "id": "03149c6f-a0dc-411a-ab65-b9fe3dff1809",
+      "kind": "kusto-trident",
+      "scopeId": "kusto-trident",
+      "clusterUri": "",
+      "database": "d7799b17-5bda-8a69-4535-37060c89b07a",
+      "name": "stock-eventhouse",
+      "workspace": "00000000-0000-0000-0000-000000000000"
+    }
+  ],
+  "pages": [
+    {
+      "name": "Page 1",
+      "id": "f7d15f09-1b17-4836-9684-e4d4d1f5d8dc"
+    }
+  ],
+  "queries": [
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "03149c6f-a0dc-411a-ab65-b9fe3dff1809"
+      },
+      "text": " stock\r\n | where [\"time\"] > ago(5m)\r\n | summarize avgPrice = avg(todecimal(bidPrice)) by symbol\r\n | project symbol, avgPrice",
+      "id": "dee94d61-3e82-44c4-83d6-9dbe04dc852f",
+      "usedVariables": []
+    }
+  ]
+}

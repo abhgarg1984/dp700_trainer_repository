@@ -1,0 +1,28 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "a7dea63c-8083-4a2b-88ef-c9c1b758af27",
+        "clusterUri": "https://trd-a7qta59kgp9e0b050f.z4.kusto.fabric.microsoft.com",
+        "type": "Fabric",
+        "databaseItemId": "99adaa75-e79f-4e14-8320-c241e4853155",
+        "databaseItemName": "Bike_Database"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "a4b11086-6ee9-4130-9365-dc77ea40888b",
+        "content": "//***********************************************************************************************************\n// Here are two articles to help you get started with KQL:\n// KQL reference guide - https://aka.ms/KQLguide\n// SQL - KQL conversions - https://aka.ms/sqlcheatsheet\n//***********************************************************************************************************\n\n// Use \"take\" to view a sample number of records in the table and check the data.\nYOUR_TABLE_HERE\n| take 100\n\n// See how many records are in the table.\nYOUR_TABLE_HERE\n| count\n\n// This query returns the number of ingestions per hour in the given table.\nYOUR_TABLE_HERE\n| summarize IngestionCount = count() by bin(ingestion_time(), 1h)\n\n",
+        "title": "Tab",
+        "dataSourceId": "a7dea63c-8083-4a2b-88ef-c9c1b758af27"
+      },
+      {
+        "id": "dd61ae43-3702-460a-b401-a5a7267144b6",
+        "content": "-- View a sample of 100 records in the table.\nselect top 100 * from Bikestream\n\n\n SELECT Neighbourhood, Sum(No_Bikes) AS [Total Number of Bikes]\n FROM Bikestream\n GROUP BY Neighbourhood\n\n\n  SELECT CASE\n          WHEN Neighbourhood IS NULL OR Neighbourhood = '' THEN 'Unidentified'\n          ELSE Neighbourhood\n        END AS Neighbourhood,\n        SUM(No_Bikes) AS [Total Number of Bikes]\n FROM Bikestream\n GROUP BY CASE\n            WHEN Neighbourhood IS NULL OR Neighbourhood = '' THEN 'Unidentified'\n            ELSE Neighbourhood\n          END;\n\n\n.create-or-alter           ",
+        "title": "",
+        "dataSourceId": "a7dea63c-8083-4a2b-88ef-c9c1b758af27"
+      }
+    ]
+  }
+}

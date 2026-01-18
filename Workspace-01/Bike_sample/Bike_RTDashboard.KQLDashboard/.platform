@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "KQLDashboard",
+    "displayName": "Bike_RTDashboard",
+    "description": "Bike_RTDashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "b09bbf9a-f709-9049-4040-e342b1a7a7d4"
+  }
+}
